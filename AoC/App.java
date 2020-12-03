@@ -1,12 +1,9 @@
 package AoC;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+
 import java.util.List;
-import java.util.ArrayList;
 public class App {
     public static void main(String[] args) throws Exception {
-        dag1();
+        test();
 
     }
     public static void dag1(){
@@ -16,6 +13,14 @@ public class App {
         int result2 = Repair.repair2(list);
         System.out.println(result2);
 
+
+    }
+    public static void test(){
+        
+        List<String> list = ReadPuzzle.readPuzzle("d2.txt");
+        for (String i1: list) {
+            System.out.println(i1);
+        }
 
     }
 }
