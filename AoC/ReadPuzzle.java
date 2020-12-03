@@ -13,10 +13,10 @@ public class ReadPuzzle{
 
     public static List<String> readPuzzle(String fileName) {
         try {
-            Scanner scanner = new Scanner(new File("../puzzels/"+fileName));
+            Scanner scanner = new Scanner(new File("./puzzels/"+fileName));
             List<String> list = new ArrayList<String>();
-            while (scanner.hasNext()){
-                list.add(scanner.next());
+            while (scanner.hasNextLine()){
+                list.add(scanner.nextLine());
             }
             scanner.close();
             return list;
