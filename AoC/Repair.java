@@ -1,8 +1,8 @@
 package AoC;
 
-import static java.lang.Integer.parseInt;
-
 import java.util.List;
+
+import static java.lang.Integer.parseInt;
 
 public class Repair {
 
@@ -42,7 +42,8 @@ public class Repair {
         }
         return 0;
     }
-    public static void dag1(){
+
+    public static void dag1() {
 
         List<String> list = ReadPuzzle.readPuzzle("d1.txt");
         int result1 = Repair.repair1(list);
@@ -51,7 +52,6 @@ public class Repair {
         System.out.println(result2);
     }
 }
-
 
 
 // Kan je de tekst lezen?
