@@ -7,7 +7,6 @@ import java.nio.file.Paths;
 import java.util.*;
 public class Binairy {
 	public static void main(String[] args) throws IOException {
-	
 	}
 	
 	public static void deel1(int[] intarr){
