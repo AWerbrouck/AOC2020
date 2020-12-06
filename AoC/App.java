@@ -34,4 +34,8 @@ public class App {
     public static void dag5() throws IOException {
         Binairy.dag5();
     }
+    
+    public static void dag6() {
+        Customs.dag6();
+    }
 }
