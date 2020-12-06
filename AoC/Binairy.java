@@ -9,13 +9,13 @@ public class Binairy {
 	public static void main(String[] args) {
 	}
 	
-	public static void deel1(int[] intarr){
+	public static void deel1(int[] intarr) {
 		System.out.println("dag 5 deel1: " + intarr[intarr.length - 1]);
 	}
-	public static void deel2(int[] intarr){
+	
+	public static void deel2(int[] intarr) {
 		System.out.println("dag 5 deel2: " + ((intarr[0] + intarr[intarr.length - 1]) * (intarr.length + 1) / 2 - Arrays.stream(intarr).sum()));
 	}
-	
 	
 	
 	public static void dag5() throws IOException {
