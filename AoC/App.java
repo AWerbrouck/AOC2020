@@ -9,6 +9,7 @@ public class App {
         dag3();
         dag4();
         dag5();
+        dag6();
     }
 
     public static void dag1() {
@@ -20,11 +21,11 @@ public class App {
     }
 
     public static void dag3() {
-        System.out.println(Trees.dag3(1, 1));
-        System.out.println(Trees.dag3(1, 3));
-        System.out.println(Trees.dag3(1, 5));
-        System.out.println(Trees.dag3(1, 7));
-        System.out.println(Trees.dag3(2, 1));
+        System.out.println("dag 3 1,1: " + Trees.dag3(1, 1));
+        System.out.println("dag 3 1,3: " + Trees.dag3(1, 3));
+        System.out.println("dag 3 1,5: " + Trees.dag3(1, 5));
+        System.out.println("dag 3 1,7: " + Trees.dag3(1, 7));
+        System.out.println("dag 3 2,1: " + Trees.dag3(2, 1));
     }
     
     public static void dag4() {
@@ -35,7 +36,7 @@ public class App {
         Binairy.dag5();
     }
     
-    public static void dag6() {
+    public static void dag6() throws IOException {
         Customs.dag6();
     }
 }

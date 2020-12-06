@@ -46,10 +46,11 @@ public class Repair {
     public static void dag1() {
 
         List<String> list = ReadPuzzle.readPuzzle("d1.txt");
+        assert list != null;
         int result1 = Repair.repair1(list);
-        System.out.println(result1);
+        System.out.println("dag 1 deel1: " + result1);
         int result2 = Repair.repair2(list);
-        System.out.println(result2);
+        System.out.println("dag 1 deel2: " +result2);
     }
 }
 

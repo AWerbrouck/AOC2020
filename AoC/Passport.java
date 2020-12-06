@@ -1,9 +1,5 @@
 package AoC;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -102,16 +98,11 @@ public class Passport {
         return count;
     }
 
-    public static void dag4(){
-        try {
-            lines = ReadPuzzle.getInput("./puzzels/dag4.txt");
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+    public static void dag4() {
+        lines = ReadPuzzle.getInput("./puzzels/dag4.txt");
         join();
-        System.out.println(deel1(lines));
-        System.out.println(deel2(lines));
+        System.out.println("dag 4 deel1: " + deel1(lines));
+        System.out.println("dag 4 deel2: " + deel2(lines));
         
     }
 

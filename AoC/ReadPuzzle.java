@@ -18,7 +18,7 @@ public class ReadPuzzle {
     public static List<String> readPuzzle(String fileName) {
         try {
             Scanner scanner = new Scanner(new File("./puzzels/" + fileName));
-            List<String> list = new ArrayList<String>();
+            List<String> list = new ArrayList<>();
             while (scanner.hasNextLine()) {
                 list.add(scanner.nextLine());
             }
@@ -31,22 +31,29 @@ public class ReadPuzzle {
         return null;
     }
 
-    public static int[] readPuzzleInt(String fileName) throws FileNotFoundException {
+/*    public static int[] readPuzzleInt(String fileName) throws FileNotFoundException {
         int[] intArray = new int[]{};
         Scanner scanner = new Scanner(new File("./puzzels/" + fileName));
         int i = 0;
         while(scanner.hasNextInt()){
+            //noinspection ConstantConditions
             intArray[i++] = scanner.nextInt();
-         }
+            i++;
+        }
         return intArray;
 
-    }
-    public static String[] getInput(String fileName) throws FileNotFoundException{
+    }*/
+    public static String[] getInput(String fileName) {
         try {
             return Files.lines(Path.of(fileName)).toArray(String[]::new);
         } catch (IOException e) {
             e.printStackTrace();
             return new String[0];
         }
+    }
+    
+    public static String[] puzzleString(String fileName) throws IOException {
+        return Files.readString(Paths.get("./puzzels/" + fileName)).split("\\n\\n");
+
     }
 }

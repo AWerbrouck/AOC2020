@@ -25,10 +25,7 @@ public class Password {
         char[] charray = string.toCharArray();
             if ((charray[x-1] == character) && (charray[y-1] != character)){
                 return true;
-            } else if ((charray[x-1] != character) && (charray[y-1] == character)){
-                return true;
-            }
-        return false;
+            } else return (charray[x - 1] != character) && (charray[y - 1] == character);
      }
      
      public static boolean checker(String string, int part){
@@ -48,10 +45,7 @@ public class Password {
                  }
              }
              if (part == 2){
-                 boolean bol = countd2(one.charAt(0), two, min, max);
-                  if (bol) {
-                      return true;
-                  }
+                 return countd2(one.charAt(0), two, min, max);
              }
          }
          return false;
@@ -67,12 +61,13 @@ public class Password {
             if (checker(string, 1)){badpwd1 ++;}
             if (checker(string, 2)){badpwd2 ++;}
         }
-         System.out.println(badpwd1);
-        System.out.println(badpwd2);
+         System.out.println("dag 2 deel1: " + badpwd1);
+        System.out.println("dag 2 deel2: " + badpwd2);
      }
     
      public static void dag2(){
          List<String> list = ReadPuzzle.readPuzzle("d2.txt");
+         assert list != null;
          mon(list);
      }
 }
