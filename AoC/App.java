@@ -10,6 +10,7 @@ public class App {
 		dag4();
 		dag5();
 		dag6();
+		day7();
 	}
 	
 	public static void dag1() {
@@ -38,5 +39,8 @@ public class App {
 	
 	public static void dag6() throws IOException {
 		Customs.dag6();
+	}
+	public static void day7() throws IOException {
+		Bags.day7();
 	}
 }
