@@ -4,13 +4,14 @@ import java.io.IOException;
 
 public class App {
 	public static void main(String[] args) throws Exception {
-		dag1();
-		dag2();
-		dag3();
-		dag4();
-		dag5();
-		dag6();
-		day7();
+//		dag1();
+//		dag2();
+//		dag3();
+//		dag4();
+//		dag5();
+//		dag6();
+//		day7();
+		day8();
 	}
 	
 	public static void dag1() {
@@ -42,5 +43,9 @@ public class App {
 	}
 	public static void day7() throws IOException {
 		Bags.day7();
+	}
+	public static void day8() {
+		Handheld handheld = new Handheld();
+		handheld.day8();
 	}
 }
