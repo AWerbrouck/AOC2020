@@ -3,9 +3,61 @@ package net.swamp.aoc2020;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Puzzle07 extends AbstractPuzzle{
+public class Puzzle07 extends AbstractPuzzle {
+	private final List<BagRule> bagRules = Reader();
+	
 	public Puzzle07(String puzzleInput) {
 		super(puzzleInput);
+	}
+	
+	public List<BagRule> Reader() {
+		List<String> lines = Arrays.asList(getPuzzleInput().split("\n"));
+		List<BagRule> bagRules = lines.stream()
+		                              .map(BagRule::new)
+		                              .collect(Collectors.toList());
+		return bagRules;
+		
+	}
+	
+	@Override
+	public int getDay() {
+		return 7;
+	}
+	
+	@Override
+	public String solvePart1() {
+		List<BagRule> matchedRules = new ArrayList<>();
+		findMatchingRule(bagRules, matchedRules, "shiny gold");
+		return String.valueOf(matchedRules.size());
+	}
+	
+	@Override
+	public String solvePart2() {
+		return String.valueOf(countChildrenBags(bagRules, "shiny gold"));
+	}
+	
+	public void findMatchingRule(List<BagRule> totalRules, List<BagRule> matchedRules, String color) {
+		totalRules.
+				          forEach(bagRule -> {
+					          if (bagRule.containedBags.containsKey(color) && !matchedRules.contains(bagRule)) {
+						          matchedRules.add(bagRule);
+						          findMatchingRule(totalRules, matchedRules, bagRule.colorParent);
+					          }
+				          });
+	}
+	
+	public int countChildrenBags(List<BagRule> totalRules, String color) {
+		return Objects.requireNonNull(totalRules.stream()
+		                                        .filter(r -> r
+				                                        .colorParent.equals(color))
+		                                        .findFirst()
+		                                        .orElse(null))
+				.containedBags.entrySet()
+				              .stream()
+				              .map(e -> e
+						              .getValue() + (e.getValue() * countChildrenBags(totalRules, e.getKey())))
+				              .reduce(Integer::sum)
+				              .orElse(0);
 	}
 	
 	public class BagRule {
@@ -46,55 +98,5 @@ public class Puzzle07 extends AbstractPuzzle{
 		public int hashCode() {
 			return Objects.hash(colorParent);
 		}
-	}
-	
-	public List<BagRule> Reader(){
-		List<String> lines = Arrays.asList(getPuzzleInput().split("\n"));
-		List<BagRule> bagRules = lines.stream()
-		                              .map(BagRule::new)
-		                              .collect(Collectors.toList());
-		return bagRules;
-		
-	}
-	private List<BagRule> bagRules = Reader();
-	@Override
-	public int getDay() {
-		return 7;
-	}
-	
-	@Override
-	public String solvePart1(){
-		List<BagRule> matchedRules = new ArrayList<>();
-		findMatchingRule(bagRules, matchedRules, "shiny gold");
-		return String.valueOf(matchedRules.size());
-	}
-	
-	@Override
-	public String solvePart2(){
-		return String.valueOf(countChildrenBags(bagRules, "shiny gold"));
-	}
-	public void findMatchingRule(List<BagRule> totalRules, List<BagRule> matchedRules, String color) {
-		totalRules.
-				          forEach(bagRule -> {
-					          if (bagRule.containedBags.containsKey(color) && !matchedRules.contains(bagRule)) {
-						          matchedRules.add(bagRule);
-						          findMatchingRule(totalRules, matchedRules, bagRule.colorParent);
-					          }
-				          });
-	}
-	
-	
-	public int countChildrenBags(List<BagRule> totalRules, String color) {
-		return Objects.requireNonNull(totalRules.stream()
-		                                        .filter(r -> r
-				                                        .colorParent.equals(color))
-		                                        .findFirst()
-		                                        .orElse(null))
-				.containedBags.entrySet()
-				              .stream()
-				              .map(e -> e
-						              .getValue() + (e.getValue() * countChildrenBags(totalRules, e.getKey())))
-				              .reduce(Integer::sum)
-				              .orElse(0);
 	}
 }

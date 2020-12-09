@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Puzzle03 extends AbstractPuzzle{
+public class Puzzle03 extends AbstractPuzzle {
+	private final List<String> list = reader();
+	
 	public Puzzle03(String puzzleInput) {
 		super(puzzleInput);
 	}
@@ -14,7 +16,7 @@ public class Puzzle03 extends AbstractPuzzle{
 		return 3;
 	}
 	
-	public List<String> reader(){
+	public List<String> reader() {
 		
 		try (var scanner = new Scanner(getPuzzleInput())) {
 			List<String> list = new ArrayList<>();
@@ -24,20 +26,17 @@ public class Puzzle03 extends AbstractPuzzle{
 			return list;
 		}
 	}
-	private final List<String> list = reader();
-	
-	
-	
 	
 	@Override
-	public String solvePart1(){
-		return String.valueOf(Trees(3,1));
+	public String solvePart1() {
+		return String.valueOf(Trees(3, 1));
 	}
 	
 	@Override
-	public String solvePart2(){
-		return String.valueOf(Trees(1,1) * Trees(3,1) * Trees(5,1) * Trees(7,1) * Trees(1,2) );
+	public String solvePart2() {
+		return String.valueOf(Trees(1, 1) * Trees(3, 1) * Trees(5, 1) * Trees(7, 1) * Trees(1, 2));
 	}
+	
 	public int Trees(int right, int down) {
 		int trees = 0;
 		int H = 0;

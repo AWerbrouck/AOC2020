@@ -3,6 +3,9 @@ package net.swamp.aoc2020;
 import java.util.*;
 
 public class Puzzle09 extends AbstractPuzzle {
+	public ArrayList<Integer> intarray = Reader();
+	int preamble = 25;
+	
 	public Puzzle09(String puzzleInput) {
 		super(puzzleInput);
 	}
@@ -11,9 +14,6 @@ public class Puzzle09 extends AbstractPuzzle {
 	public int getDay() {
 		return 9;
 	}
-	
-	int preamble = 25;
-	
 	
 	public ArrayList<Integer> Reader() {
 		Scanner scanner = new Scanner(getPuzzleInput());
@@ -24,8 +24,6 @@ public class Puzzle09 extends AbstractPuzzle {
 		scanner.close();
 		return arraylist;
 	}
-	
-	public ArrayList<Integer> intarray = Reader();
 	
 	@Override
 	public String solvePart1() {

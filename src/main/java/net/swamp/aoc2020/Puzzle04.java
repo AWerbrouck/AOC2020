@@ -7,7 +7,27 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Puzzle04 extends AbstractPuzzle{
+public class Puzzle04 extends AbstractPuzzle {
+	public final String[] regexen_deel1 = {
+			".*\\bbyr:.*",
+			".*\\biyr:.*",
+			".*\\beyr:.*",
+			".*\\bhgt:.*",
+			".*\\bhcl:.*",
+			".*\\becl:.*",
+			".*\\bpid:.*"
+	};
+	public final String[] regexen_deel2 = {
+			".*\\bbyr:(\\d{4})\\b.*",
+			".*\\biyr:(\\d{4})\\b.*",
+			".*\\beyr:(\\d{4})\\b.*",
+			".*\\bhgt:(\\d+)(cm|in)\\b.*",
+			".*\\bhcl:#[0-9a-f]{6}\\b.*",
+			".*\\becl:(?:amb|blu|brn|gry|grn|hzl|oth)\\b.*",
+			".*\\bpid:\\d{9}\\b.*"
+	};
+	private final String[] list = reader();
+	
 	public Puzzle04(String puzzleInput) {
 		super(puzzleInput);
 	}
@@ -17,26 +37,23 @@ public class Puzzle04 extends AbstractPuzzle{
 		return 4;
 	}
 	
-	public String[] reader(){
+	public String[] reader() {
 		
 		try (var scanner = new Scanner(getPuzzleInput())) {
 			List<String> listtemp = new ArrayList<>();
 			while (scanner.hasNextLine()) {
 				listtemp.add(scanner.nextLine());
 			}
-			String[] list= listtemp.toArray(new String[0]);
+			String[] list = listtemp.toArray(new String[0]);
 			list = String.join("\n", list)
 			             .replaceAll("\\b\\n\\b", " ")
 			             .split("\\n\\n");
 			return list;
 		}
 	}
-	private String[] list = reader();
-	
-	
 	
 	@Override
-	public String solvePart1(){
+	public String solvePart1() {
 		
 		int count = 0;
 		for (String line : list) {
@@ -50,11 +67,11 @@ public class Puzzle04 extends AbstractPuzzle{
 		}
 		return String.valueOf(count);
 		
-
+		
 	}
-	
+
 	@Override
-	public String solvePart2(){
+	public String solvePart2() {
 		int count = 0;
 		for (String line : list) {
 			boolean valid = true;
@@ -98,24 +115,5 @@ public class Puzzle04 extends AbstractPuzzle{
 		}
 		return String.valueOf(count);
 	}
-	
-	public final String[] regexen_deel1 = {
-			".*\\bbyr:.*",
-			".*\\biyr:.*",
-			".*\\beyr:.*",
-			".*\\bhgt:.*",
-			".*\\bhcl:.*",
-			".*\\becl:.*",
-			".*\\bpid:.*"
-	};
-	public final String[] regexen_deel2 = {
-			".*\\bbyr:(\\d{4})\\b.*",
-			".*\\biyr:(\\d{4})\\b.*",
-			".*\\beyr:(\\d{4})\\b.*",
-			".*\\bhgt:(\\d+)(cm|in)\\b.*",
-			".*\\bhcl:#[0-9a-f]{6}\\b.*",
-			".*\\becl:(?:amb|blu|brn|gry|grn|hzl|oth)\\b.*",
-			".*\\bpid:\\d{9}\\b.*"
-	};
 	
 }

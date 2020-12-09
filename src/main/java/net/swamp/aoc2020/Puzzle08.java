@@ -1,13 +1,14 @@
 package net.swamp.aoc2020;
 
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-public class Puzzle08 extends AbstractPuzzle{
+public class Puzzle08 extends AbstractPuzzle {
+	public ArrayList<InstructionCount> instructions = createArray();
+	
 	public Puzzle08(String puzzleInput) {
 		super(puzzleInput);
 	}
@@ -16,15 +17,15 @@ public class Puzzle08 extends AbstractPuzzle{
 	public int getDay() {
 		return 8;
 	}
-	public ArrayList<InstructionCount> instructions = createArray();
+	
 	@Override
-	public String solvePart1(){
+	public String solvePart1() {
 		return String.valueOf(run(instructions));
-
+		
 	}
 	
 	@Override
-	public String solvePart2(){
+	public String solvePart2() {
 		return String.valueOf(fixloop(instructions));
 	}
 	
@@ -45,20 +46,6 @@ public class Puzzle08 extends AbstractPuzzle{
 		return instructions;
 		
 	}
-	
-	
-	
-	
-	class InstructionCount {
-		int steps;
-		String type;
-		
-		InstructionCount(String type, String steps) {
-			this.type = type;
-			this.steps = Integer.parseInt(steps);
-		}
-	}
-	
 	
 	public int run(ArrayList<InstructionCount> instructions) {
 		Set<InstructionCount> visited = new HashSet<>();
@@ -105,7 +92,7 @@ public class Puzzle08 extends AbstractPuzzle{
 				else if (currInstruction.type.equals("nop"))
 					currInstruction.type = "jmp";
 			}
-			currIndex ++;
+			currIndex++;
 		}
 		return 0;
 	}
@@ -122,9 +109,19 @@ public class Puzzle08 extends AbstractPuzzle{
 				currIndex += (currInstruction.steps - 1);
 			
 			visited.add(currInstruction);
-			currIndex ++;
+			currIndex++;
 		}
 		return true;
+	}
+	
+	class InstructionCount {
+		int steps;
+		String type;
+		
+		InstructionCount(String type, String steps) {
+			this.type = type;
+			this.steps = Integer.parseInt(steps);
+		}
 	}
 	
 	

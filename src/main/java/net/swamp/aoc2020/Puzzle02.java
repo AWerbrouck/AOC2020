@@ -1,4 +1,5 @@
 package net.swamp.aoc2020;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -6,7 +7,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static java.lang.Integer.parseInt;
-public class Puzzle02 extends AbstractPuzzle{
+
+public class Puzzle02 extends AbstractPuzzle {
+	private final List<String> list = reader();
+	
 	public Puzzle02(String puzzleInput) {
 		super(puzzleInput);
 	}
@@ -16,7 +20,7 @@ public class Puzzle02 extends AbstractPuzzle{
 		return 2;
 	}
 	
-	public List<String> reader(){
+	public List<String> reader() {
 		
 		try (var scanner = new Scanner(getPuzzleInput())) {
 			List<String> list = new ArrayList<>();
@@ -26,9 +30,9 @@ public class Puzzle02 extends AbstractPuzzle{
 			return list;
 		}
 	}
-	private final List<String> list = reader();
+	
 	@Override
-	public String solvePart1(){
+	public String solvePart1() {
 		int illegalPassword = 0;
 		
 		for (String string : list) {
@@ -41,7 +45,7 @@ public class Puzzle02 extends AbstractPuzzle{
 	}
 	
 	@Override
-	public String solvePart2(){
+	public String solvePart2() {
 		int illegalPassword = 0;
 		
 		for (String string : list) {
@@ -91,7 +95,6 @@ public class Puzzle02 extends AbstractPuzzle{
 		}
 		return amount;
 	}
-	
 	
 	
 }
