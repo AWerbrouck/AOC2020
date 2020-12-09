@@ -50,8 +50,8 @@ public class Bags {
 		                              .map(BagRule::new)
 		                              .collect(Collectors.toList());
 		
-		System.out.println(part1(bagRules));
-		System.out.println(part2(bagRules));
+		System.out.println("dag 7 deel1: " +part1(bagRules));
+		System.out.println("dag 7 deel2: " +part2(bagRules));
 	}
 	
 	public static void main(String[] args) throws IOException {

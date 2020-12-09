@@ -48,4 +48,9 @@ public class App {
 		Handheld handheld = new Handheld();
 		handheld.day8();
 	}
+	
+	public static void day9() throws FileNotFoundException {
+		Encoding encoding = new Encoding();
+		encoding.day9();
+	}
 }

@@ -7,17 +7,6 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class Handheld {
-	class InstructionCount {
-		int steps;
-		String type;
-		
-		InstructionCount(String type, String steps) {
-			this.type = type;
-			this.steps = Integer.parseInt(steps);
-		}
-	}
-	
-	
 	public int run(ArrayList<InstructionCount> instructions) {
 		Set<InstructionCount> visited = new HashSet<>();
 		int accumulator = 0;
@@ -63,7 +52,7 @@ public class Handheld {
 				else if (currInstruction.type.equals("nop"))
 					currInstruction.type = "jmp";
 			}
-			currIndex ++;
+			currIndex++;
 		}
 		return 0;
 	}
@@ -80,18 +69,18 @@ public class Handheld {
 				currIndex += (currInstruction.steps - 1);
 			
 			visited.add(currInstruction);
-			currIndex ++;
+			currIndex++;
 		}
 		return true;
 	}
 	
 	public void part1(ArrayList<InstructionCount> instructions) {
-		System.out.println(run(instructions));
+		System.out.println("dag 8 deel1: " + run(instructions));
 		
 	}
 	
 	public void part2(ArrayList<InstructionCount> instructions) {
-		System.out.println(fixloop(instructions));
+		System.out.println("dag 8 deel2: " + fixloop(instructions));
 	}
 	
 	public ArrayList<InstructionCount> createArray() {
@@ -116,6 +105,16 @@ public class Handheld {
 		part1(createArray());
 		part2(createArray());
 		
+	}
+	
+	class InstructionCount {
+		int steps;
+		String type;
+		
+		InstructionCount(String type, String steps) {
+			this.type = type;
+			this.steps = Integer.parseInt(steps);
+		}
 	}
 	
 }

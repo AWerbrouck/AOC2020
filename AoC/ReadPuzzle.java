@@ -30,9 +30,28 @@ public class ReadPuzzle {
 		return null;
 	}
 	
+	
+	public static ArrayList<Integer> readPuzzleArray(String fileName) {
+		try {
+			Scanner scanner = new Scanner(new File("./puzzels/" + fileName));
+			ArrayList<Integer> arraylist = new ArrayList<>();
+			while (scanner.hasNextInt()) {
+				arraylist.add(scanner.nextInt());
+			}
+			scanner.close();
+			return arraylist;
+		} catch (FileNotFoundException exception) {
+			System.out.println("An error occurred.");
+			exception.printStackTrace();
+		}
+		return null;
+	}
+	
+	
 	public static String[] getInput(String fileName) {
 		try {
-			return Files.lines(Path.of(fileName)).toArray(String[]::new);
+			return Files.lines(Path.of(fileName))
+			            .toArray(String[]::new);
 		} catch (IOException e) {
 			e.printStackTrace();
 			return new String[0];
@@ -40,20 +59,22 @@ public class ReadPuzzle {
 	}
 	
 	public static String[] puzzleString(String fileName) throws IOException {
-		return Files.readString(Paths.get("./puzzels/" + fileName)).split("\\n\\n");
+		return Files.readString(Paths.get("./puzzels/" + fileName))
+		            .split("\n\n");
 		
 	}
-	public static int[] readPuzzleInt(String fileName) throws FileNotFoundException {
+/*	public static arraylist readPuzzleInt(String fileName) throws FileNotFoundException {
 		int[] intArray = new int[]{};
 		Scanner scanner = new Scanner(new File("./puzzels/" + fileName));
 		int i = 0;
 		while(scanner.hasNextInt()){
-			i++;
+			
 			intArray[i] = scanner.nextInt();
+			i++;
 		}
 		return intArray;
 		
-	}
+	}*/
 	
 	static List<String> readStringsBySeparator(String fileName, String separator) throws IOException {
 		List<String> result = new ArrayList<>();
@@ -63,7 +84,8 @@ public class ReadPuzzle {
 			sb.append(br.readLine());
 			sb.append("\n");
 		}
-		String[] split = sb.toString().split(separator);
+		String[] split = sb.toString()
+		                   .split(separator);
 		Collections.addAll(result, split);
 		return result;
 	}
