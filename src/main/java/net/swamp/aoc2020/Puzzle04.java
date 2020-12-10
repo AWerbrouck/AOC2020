@@ -32,6 +32,7 @@ public class Puzzle04 extends AbstractPuzzle {
 		super(puzzleInput);
 	}
 	
+	@SuppressWarnings("SameReturnValue")
 	@Override
 	public int getDay() {
 		return 4;

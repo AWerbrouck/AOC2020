@@ -49,7 +49,7 @@ public class Puzzle10 extends AbstractPuzzle {
 
     @Override
     public String solvePart2() {
-		int[] fibonacci = { 0, 1, 1, 2, 4, 7, 13, 20, 33, 53 };
+		int[] tribonacci = { 0, 1, 1, 2, 4, 7, 13, 24, 44, 81, 149};
 		int previous = 0;
 		long result = 1;
 		int consecutiveCount = 1;
@@ -58,7 +58,7 @@ public class Puzzle10 extends AbstractPuzzle {
 			if (jolt == previous + 1) {
 			consecutiveCount++;
 			} else {
-			result *= fibonacci[consecutiveCount];
+			result *= tribonacci[consecutiveCount];
 			consecutiveCount = 1;
 			}
 			previous = jolt;

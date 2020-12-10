@@ -7,8 +7,17 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class Puzzle08 extends AbstractPuzzle {
-	public ArrayList<InstructionCount> instructions = createArray();
-	
+	class InstructionCount {
+		int steps;
+		String type;
+
+		InstructionCount(String type, String steps) {
+			this.type = type;
+			this.steps = Integer.parseInt(steps);
+		}
+	}
+
+
 	public Puzzle08(String puzzleInput) {
 		super(puzzleInput);
 	}
@@ -34,7 +43,7 @@ public class Puzzle08 extends AbstractPuzzle {
 		instructions = new ArrayList<>();
 		try {
 			Scanner scanner = new Scanner(getPuzzleInput());
-			
+
 			while (scanner.hasNext()) {
 				String[] line = scanner.nextLine()
 				                       .split("[+ \\s++]");
@@ -44,9 +53,9 @@ public class Puzzle08 extends AbstractPuzzle {
 			System.out.println(exception.toString());
 		}
 		return instructions;
-		
+
 	}
-	
+	public ArrayList<InstructionCount> instructions = createArray();
 	public int run(ArrayList<InstructionCount> instructions) {
 		Set<InstructionCount> visited = new HashSet<>();
 		int accumulator = 0;
@@ -113,16 +122,8 @@ public class Puzzle08 extends AbstractPuzzle {
 		}
 		return true;
 	}
-	
-	class InstructionCount {
-		int steps;
-		String type;
-		
-		InstructionCount(String type, String steps) {
-			this.type = type;
-			this.steps = Integer.parseInt(steps);
-		}
-	}
-	
-	
+
+
+
+
 }

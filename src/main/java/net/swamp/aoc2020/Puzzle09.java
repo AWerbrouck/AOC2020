@@ -3,8 +3,8 @@ package net.swamp.aoc2020;
 import java.util.*;
 
 public class Puzzle09 extends AbstractPuzzle {
-	public ArrayList<Integer> intarray = Reader();
-	int preamble = 25;
+	public final ArrayList<Integer> intarray = Reader();
+	final int preamble = 25;
 	
 	public Puzzle09(String puzzleInput) {
 		super(puzzleInput);

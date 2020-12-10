@@ -18,14 +18,13 @@ public class Puzzle05 extends AbstractPuzzle {
 	public int[] Reader() {
 		
 		try (var scanner = new Scanner(getPuzzleInput())) {
-			int[] intarr = getPuzzleInput().lines()
-			                               .map(line -> line
+			return getPuzzleInput().lines()
+			                       .map(line -> line
 					                               .replaceAll("[FL]", "0")
 					                               .replaceAll("[BR]", "1"))
-			                               .mapToInt(line -> Integer.parseInt(line, 2))
-			                               .sorted()
-			                               .toArray();
-			return intarr;
+			                       .mapToInt(line -> Integer.parseInt(line, 2))
+			                       .sorted()
+			                       .toArray();
 		}
 	}
 	
