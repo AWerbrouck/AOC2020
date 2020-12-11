@@ -38,21 +38,6 @@ public class Puzzle04 extends AbstractPuzzle {
 		return 4;
 	}
 	
-	public String[] reader() {
-		
-		try (var scanner = new Scanner(getPuzzleInput())) {
-			List<String> listtemp = new ArrayList<>();
-			while (scanner.hasNextLine()) {
-				listtemp.add(scanner.nextLine());
-			}
-			String[] list = listtemp.toArray(new String[0]);
-			list = String.join("\n", list)
-			             .replaceAll("\\b\\n\\b", " ")
-			             .split("\\n\\n");
-			return list;
-		}
-	}
-	
 	@Override
 	public String solvePart1() {
 		
@@ -70,7 +55,7 @@ public class Puzzle04 extends AbstractPuzzle {
 		
 		
 	}
-
+	
 	@Override
 	public String solvePart2() {
 		int count = 0;
@@ -115,6 +100,21 @@ public class Puzzle04 extends AbstractPuzzle {
 			}
 		}
 		return String.valueOf(count);
+	}
+	
+	public String[] reader() {
+		
+		try (var scanner = new Scanner(getPuzzleInput())) {
+			List<String> listtemp = new ArrayList<>();
+			while (scanner.hasNextLine()) {
+				listtemp.add(scanner.nextLine());
+			}
+			String[] list = listtemp.toArray(new String[0]);
+			list = String.join("\n", list)
+			             .replaceAll("\\b\\n\\b", " ")
+			             .split("\\n\\n");
+			return list;
+		}
 	}
 	
 }
